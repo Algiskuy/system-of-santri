@@ -21,14 +21,10 @@ const NavSprint = ({ children }) => {
 
   return (
     <div className=" w-full fixed z-50 top-0 left-0">
-      <div className="flex fixed z-[99] border-b-[3px] border-[#008C74] items-center sm:w-full bg-white sm:h-[9vh] 3xl:h-max pb-[2.3%] pt-[7%] sm:px-[3%] px-7">
-        <div className="flex justify-between w-full">
-          <div className="flex items-center lg:w-full">
-            <img
-              src={logo}
-              alt="logo"
-              className="w-[50%] sm:w-[35%] lg:w-[25%] "
-            />
+      <div className="flex fixed z-[99] border-b-[2px] border-[#008C74] sm:w-full mt-[10vh] px-7">
+        <div className="flex w-full">
+          <div className="flex items-center">
+            <p>Front End</p>
           </div>
           <div
             onClick={() => setOpen(!open)}
@@ -52,7 +48,7 @@ const NavSprint = ({ children }) => {
             </svg>
           </div>
         </div>
-        <ul
+        <div
           className={`left-0 sm:flex sm:items-center sm:justify-end absolute sm:static font-bold grid gap-8 sm:gap-[5%] pt-[23%] px-[7%] sm:px-0 sm:pt-0 sm:pb-0 pb-[8%] sm:bg-none sm:z-auto z-[-1] w-full  duration-[0.5s] ${
             open ? "top-0" : "top-[-600%]"
           }`}
@@ -60,17 +56,17 @@ const NavSprint = ({ children }) => {
           {navPage.map((data, index) => {
             return (
               <NavLink key={index} to={data.path}>
-                <li>
-                  <a href="#" className="flex gap-4">
+                <div>
+                  <div href="#" className="flex gap-4">
                     <p className="text-sm my-[15%] border flex-[0_0_100%] border-[#008C74] hover:bg-[#008C74] duration-500 hover:text-white py-1.5 px-3 rounded-3xl">
                       {data.name}
                     </p>
-                  </a>
-                </li>
+                  </div>
+                </div>
               </NavLink>
             );
           })}
-        </ul>
+        </div>
       </div>
       <main className="w-full">{children}</main>
     </div>

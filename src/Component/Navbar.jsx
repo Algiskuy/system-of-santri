@@ -6,7 +6,7 @@ const Nav = ({ children }) => {
   const [open, setOpen] = useState(false);
   const navPage = [
     {
-      path: "/profile",
+      path: "/myprofile",
       name: "Profile",
     },
     {
@@ -25,9 +25,10 @@ const Nav = ({ children }) => {
 
   return (
     <div className=" w-full fixed lg:static z-50 top-0 left-0">
-      <div className="flex top-[-100px fixed z-[99] items-center sm:w-full bg-[#008C74] shadow-[0_3px_20px_rgba(0,0,0,0.25)] sm:h-[9vh] 3xl:h-max py-3 sm:px-[3%] px-7 rounded-b-xl sm:rounded-b-3xl">
+      {/* <div className="flex top-[-100px fixed z-[99] items-center sm:w-full bg-[#008C74] shadow-[0_3px_20px_rgba(0,0,0,0.25)] sm:h-[9vh] 3xl:h-max py-3 sm:px-[3%] px-7 rounded-b-xl sm:rounded-b-3xl"> */}
+      <div className="flex fixed z-[99] items-center w-full bg-[#008C74] shadow-[0_3px_20px_rgba(0,0,0,0.25)] min-h-[9vh] max-h-[9vh] p-3 rounded-b-xl">
         <div className="flex justify-between w-full">
-          <div className="flex items-center lg:w-full">
+          <div className="flex items-center w-52 sm:w-96">
             <img
               src={logo}
               alt="logo"
@@ -56,7 +57,7 @@ const Nav = ({ children }) => {
             </svg>
           </div>
         </div>
-        <ul
+        <div
           className={`left-0 sm:flex sm:items-center sm:justify-end absolute sm:static font-bold grid gap-8 sm:gap-[5%] pt-[23%] px-[7%] sm:px-0 sm:pt-0 sm:pb-0 pb-[8%] bg-[#008C74] sm:bg-none sm:z-auto z-[-1] w-full transition-all duration-[0.5s] sm:duration-[0s] ease-in shadow-[0_3px_20px_rgba(0,0,0,0.5)] sm:shadow-none ${
             open ? "top-0" : "top-[-600%]"
           }`}
@@ -64,15 +65,16 @@ const Nav = ({ children }) => {
           {navPage.map((data, index) => {
             return (
               <NavLink key={index} to={data.path}>
-                <li>
-                  <a href="" className="flex gap-4">
+                <div>
+                  {/* <a href="" className="flex gap-4">
                     <p className="text-white">{data.name}</p>
-                  </a>
-                </li>
+                  </a> */}
+                  <p className="text-white ml-5 min-w-max ">{data.name}</p>
+                </div>
               </NavLink>
             );
           })}
-        </ul>
+        </div>
       </div>
       <main className="w-full">{children}</main>
     </div>
